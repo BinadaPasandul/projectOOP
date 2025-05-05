@@ -1,49 +1,71 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 40px;
+    background-color: white;
+    color: #000;
+  }
+  
+  header,
+  footer {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
   }
   
   .container {
-    max-width: 600px;
+    width: 90%;
+    max-width: 800px;
     margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    margin: 0;
   }
   
   h2 {
+    margin-top: 2rem;
     text-align: center;
-    margin-bottom: 20px;
   }
   
-  form label {
-    display: block;
-    margin-top: 15px;
+  .product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .product-form label {
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
   }
   
-  form input,
-  form textarea,
-  form select,
-  form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+  .product-form input,
+  .product-form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.3rem;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 5px;
   }
   
-  form button {
-    background-color: #007bff;
+  .publish-btn {
+    background-color: #28a745;
     color: white;
     border: none;
-    margin-top: 20px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  form button:hover {
-    background-color: #0056b3;
+  .publish-btn:hover {
+    background-color: #218838;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
   }
   
