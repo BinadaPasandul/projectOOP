@@ -6,14 +6,8 @@ body {
     color: #000;
   }
   
-  /* Header & Footer */
-  header,
-  footer {
-    background-color: #000;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-  }
+
+
   
   .container {
     width: 90%;
@@ -59,10 +53,28 @@ body {
     display: flex;
     flex-direction: column;
     font-weight: 600;
-    color: #444;
+    color: #000000;
   }
   
   .product-form input,
+
+  .product-form select {
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    margin-top: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    transition: border 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .product-form select:focus {
+    border-color: #28a745;
+    outline: none;
+  }
+  
   .product-form textarea {
     padding: 0.6rem 0.8rem;
     font-size: 1rem;
@@ -75,7 +87,7 @@ body {
   
   .product-form input:focus,
   .product-form textarea:focus {
-    border-color: #28a745;
+    border-color: #6ca728;
     outline: none;
   }
   
@@ -104,9 +116,5 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Footer */
-  footer p {
-    margin: 0;
-    font-size: 0.9rem;
-  }
+
   
