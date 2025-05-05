@@ -1,18 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   Binada
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Item Listing - Seller</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    Binadaaa
-    Binada
-    reshmi ruksala vithanage
-    i love her so much Binada
+  <div class="container">
+    <h2>List a New Item</h2>
+    <form id="listingForm">
+      <label for="itemName">Item Name</label>
+      <input type="text" id="itemName" name="itemName" required />
 
-    I love you so much reshy
-    Binada
-    buij
-    hello world
-    Binada
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
+
+      <label for="image">Upload Image</label>
+      <input type="file" id="image" name="image" accept="image/*" required />
+
+      <label for="basePrice">Base Price ($)</label>
+      <input type="number" id="basePrice" name="basePrice" min="0" required />
+
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option value="">Select category</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+        <option value="antiques">Antiques</option>
+        <option value="collectibles">Collectibles</option>
+      </select>
+
+      <label for="endTime">Auction Ends At</label>
+      <input type="datetime-local" id="endTime" name="endTime" required />
+
+      <button type="submit">Submit Item</button>
+    </form>
+  </div>
 </body>
 </html>
