@@ -75,11 +75,11 @@
         .page-title {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #333;
+            color: #000000;
         }
 
         .page-description {
-            color: #666;
+            color: #000000;
             margin-bottom: 2rem;
         }
 
@@ -101,7 +101,7 @@
             padding: 12px 20px;
             padding-left: 45px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 20px;
             font-size: 1rem;
         }
 
@@ -129,13 +129,13 @@
         }
 
         .category-btn:hover {
-            background-color: #f0f0f0;
+            background-color: #4fc080;
         }
 
         .category-btn.active {
-            background-color: #2ecc71;
+            background-color: #081a10;
             color: white;
-            border-color: #2ecc71;
+            border-color: #8fdfb7;
         }
 
         /* FAQ accordion styles */
@@ -156,7 +156,7 @@
 
         .faq-item {
             margin-bottom: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #c1baba;
             border-radius: 8px;
             overflow: hidden;
         }
@@ -173,7 +173,7 @@
         }
 
         .faq-question:hover {
-            background-color: #f0f0f0;
+            background-color: #b5bdb8;
         }
 
         .faq-question i {
@@ -232,7 +232,7 @@
 
         /* Contact section */
         .contact-section {
-            background-color: #f9f9f9;
+            background-color: #e0dddd;
             padding: 30px;
             border-radius: 8px;
             text-align: center;
@@ -259,7 +259,7 @@
         }
 
         .contact-option {
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -274,7 +274,7 @@
 
         .contact-option i {
             font-size: 2rem;
-            color: #2ecc71;
+            color: #062c16;
             margin-bottom: 15px;
         }
 
@@ -290,7 +290,7 @@
         .contact-btn {
             display: inline-block;
             padding: 8px 16px;
-            background-color: #2ecc71;
+            background-color: #2bb464;
             color: white;
             border: none;
             border-radius: 4px;
@@ -299,7 +299,7 @@
         }
 
         .contact-btn:hover {
-            background-color: #27ae60;
+            background-color: #093f20;
         }
 
         /* Footer styles */
@@ -381,7 +381,7 @@
         }
 
         .back-to-top:hover {
-            background-color: #27ae60;
+            background-color: #074622;
         }
 
         /* Responsive styles */
@@ -474,7 +474,7 @@
                 <div class="contact-option">
                     <i class="fas fa-envelope"></i>
                     <h3>Email Support</h3>
-                    <p>Get a response within 24h</p>
+                    <p>Get a response withing 24h</p>
                     <a href="mailto:support@onlinebidding.com" class="contact-btn">Email Us</a>
                 </div>
                 
@@ -483,7 +483,7 @@
                 <div class="contact-option">
                     <i class="fas fa-phone-alt"></i>
                     <h3>Phone Support</h3>
-                    <p>Available Monday-Friday, 9am-5pm .</p>
+                    <p>Get a response withing 24h</p>
                     <a href="tel:+18001234567" class="contact-btn">Call Us</a>
                 </div>
             </div>
@@ -573,12 +573,12 @@
                 faqs: [
                     {
                         question: "How does the bidding process work?",
-                        answer: "<p>Our bidding system is straightforward:</p><ol><li>Browse items and find something you're interested in</li><li>Review the item details, current bid, and minimum bid increment</li><li>Enter your maximum bid amount (must be at least the minimum bid)</li><li>Our system will automatically bid for you up to your maximum amount</li><li>You'll receive notifications if you're outbid</li><li>If you're the highest bidder when the auction ends, you win!</li></ol><p>You can place multiple bids on an item as the auction progresses.</p>"
+                        answer: "<p>Our bidding system is straightforward:</p><ol><li>Browse items and find something you're interested in</li><li>Review the item details and base price</li><li>Enter your maximum bid amount (must be at least the base price)</li><li>Our system will automatically bid for you up to your maximum amount</li><li>You'll receive notifications if you're outbid</li><li>If you're the highest bidder when the auction ends, you win!</li></ol><p>You can place multiple bids on an item as the auction progresses.</p>"
                     },
 
                     {
                         question: "What happens if I win an auction?",
-                        answer: "<p>Congratulations on winning! Here's what happens next:</p><ol><li>You'll receive a notification email confirming your win</li><li>You'll need to complete payment within 3 days</li><li>Once payment is confirmed, the seller will ship your item</li><li>You can track the shipment from your account dashboard</li><li>When you receive the item, you can leave a review for the seller</li></ol><p>If you have any issues with your purchase, our customer support team is available to help.</p>"
+                        answer: "<p>Congratulations on winning! Here's what happens next:</p><ol><li>You'll receive a notification confirming your win</li><li>You'll need to complete payment</li><li>Once payment is confirmed, the seller will ship your item</li><li>When you receive the item, you can leave a review for the seller</li></ol><p>If you have any issues with your purchase, our customer support team is available to help.</p>"
                     },
                     {
                         question: "Can I cancel a bid?",
@@ -593,20 +593,9 @@
                 faqs: [
                     {
                         question: "How do I list an item for auction?",
-                        answer: "<p>To list an item for auction:</p><ol><li>Click on 'Sell' in the main navigation</li><li>Fill out the item details form with a descriptive title, category, condition, and detailed description</li><li>Upload clear photos of your item (at least 3 recommended)</li><li>Set your starting price, reserve price (optional), and auction duration</li><li>Add shipping details and payment preferences</li><li>Review and submit your listing</li></ol><p>Your auction will be live immediately after approval, which typically takes less than 24 hours.</p>"
+                        answer: "<p>To list an item for auction:</p><ol><li>Navigate to the add new product bar</li><li>Fill out the item details form with a image, category, item name, and detailed description</li><li>add your item's base price</li><li>Set your auction end date annd time and thats it !!</li>"
                     },
-                    {
-                        question: "What fees do sellers pay?",
-                        answer: "<p>Our seller fees are structured as follows:</p><ul><li>Listing Fee: Free for standard listings</li><li>Final Value Fee: 10% of the final selling price</li><li>Featured Listing (optional): $5 per listing</li></ul><p>For example, if your item sells for $100, you'll pay a final value fee of $10. Fees are automatically deducted from your payout.</p>"
-                    },
-                    {
-                        question: "Can I set a reserve price?",
-                        answer: "<p>Yes, you can set a reserve price when creating your listing. A reserve price is the minimum amount you're willing to sell your item for.</p><p>If the bidding doesn't reach your reserve price, you're not obligated to sell the item. Bidders will be notified that a reserve price exists but won't see the actual amount.</p><p>Note that setting a reserve price may reduce the number of bids, as some bidders prefer auctions without reserves.</p>"
-                    },
-                    {
-                        question: "How do I get paid for sold items?",
-                        answer: "<p>After a successful sale, the payment process works as follows:</p><ol><li>The buyer pays through our secure payment system</li><li>You'll receive a notification to ship the item</li><li>After shipping, you provide tracking information in your seller dashboard</li><li>Funds are held in escrow until the buyer receives the item</li><li>Once delivery is confirmed, the payment (minus our fees) is released to your account</li><li>You can withdraw funds to your bank account or PayPal</li></ol><p>Payments are typically processed within 3-5 business days after the buyer confirms receipt.</p>"
-                    },
+
                     {
                         question: "What if my item doesn't sell?",
                         answer: "<p>If your item doesn't sell, you have several options:</p><ul><li>Relist the item with a lower starting price</li><li>Modify your description or add better photos</li><li>Change the auction duration or timing</li><li>Convert to a fixed-price listing</li></ul><p>Relisting is free and can be done with a single click from your seller dashboard. You might want to analyze why the item didn't sell (price too high, insufficient description, etc.) before relisting.</p>"
@@ -619,23 +608,13 @@
                 faqs: [
                     {
                         question: "What payment methods are accepted?",
-                        answer: "<p>We accept the following payment methods:</p><ul><li>Credit/Debit Cards (Visa, Mastercard, American Express, Discover)</li><li>PayPal</li><li>Bank Transfer (ACH)</li><li>Apple Pay</li><li>Google Pay</li></ul><p>All payments are processed securely through our platform. We do not recommend making payments outside of our system as this may void buyer protection.</p>"
+                        answer: "<p>We accept the following payment methods:</p><ul><li>Credit/Debit Cards (Visa, Mastercard, American Express, Discover)</li><li>PayPal</li><li>Bank Transfer (ACH)</li><p>All payments are processed securely through our platform. We do not recommend making payments outside of our system as this may void buyer protection.</p>"
                     },
-                    {
-                        question: "How does shipping work?",
-                        answer: "<p>Shipping is handled directly by sellers. When listing an item, sellers specify:</p><ul><li>Shipping costs</li><li>Shipping methods available</li><li>Estimated delivery times</li><li>Countries/regions they ship to</li></ul><p>After a successful purchase, the seller is responsible for shipping the item within 3 business days and providing tracking information. Buyers can track their shipments from their account dashboard.</p>"
-                    },
-                    {
-                        question: "What if I don't receive my item or it's not as described?",
-                        answer: "<p>We offer Buyer Protection for all purchases made through our platform:</p><ol><li>If you don't receive your item, you can open a case from your purchase history</li><li>If the item is significantly different from the description, you can request a return</li><li>Our team will review the case and may request additional information</li><li>If your claim is valid, you'll receive a full refund</li></ol><p>You must open a case within 30 days of the estimated delivery date. We recommend contacting the seller first to resolve any issues before opening a formal case.</p>"
-                    },
+
+
                     {
                         question: "Are there any customs or import fees?",
-                        answer: "<p>For international purchases, you may be subject to customs fees, import duties, or taxes imposed by your country's customs authority. These fees are not included in the item price or shipping cost.</p><p>As the buyer, you're responsible for paying any applicable customs or import fees. We recommend checking your country's import regulations before bidding on items from international sellers.</p>"
-                    },
-                    {
-                        question: "How do I track my order?",
-                        answer: "<p>To track your order:</p><ol><li>Log in to your account</li><li>Go to 'Purchase History' in your dashboard</li><li>Find the order you want to track</li><li>Click on 'Track Shipment'</li></ol><p>This will show you the current status and location of your package. If tracking information hasn't been provided within 3 business days after payment, you can contact the seller or our support team.</p>"
+                        answer: "<p>No theres no any customs or import fees!! guess thats a good for youu</p>"
                     }
                 ]
             },
@@ -647,21 +626,15 @@
                         question: "The website is running slowly. What can I do?",
                         answer: "<p>If you're experiencing slow performance, try these troubleshooting steps:</p><ol><li>Clear your browser cache and cookies</li><li>Try using a different browser</li><li>Disable browser extensions that might interfere</li><li>Check your internet connection</li><li>Refresh the page</li></ol><p>If problems persist, please contact our technical support team with details about your device, browser, and the specific issues you're experiencing.</p>"
                     },
-                    {
-                        question: "How do I enable notifications?",
-                        answer: "<p>To enable notifications:</p><ol><li>Go to 'Account Settings' in your profile</li><li>Select 'Notification Preferences'</li><li>Choose which notifications you want to receive (email, push, SMS)</li><li>Save your preferences</li></ol><p>If you're not receiving notifications despite enabling them, check your email spam folder or browser notification settings. For mobile devices, ensure you've allowed notifications for our app in your device settings.</p>"
-                    },
-                    {
-                        question: "Is there a mobile app available?",
-                        answer: "<p>Yes, we have mobile apps available for both iOS and Android devices:</p><ul><li>iOS: Download from the App Store</li><li>Android: Download from Google Play Store</li></ul><p>Our mobile apps offer all the functionality of the website, plus push notifications for bid updates and auction endings. You can also use the app to take photos and list items directly from your mobile device.</p>"
-                    },
+
+
                     {
                         question: "Why can't I upload images?",
                         answer: "<p>If you're having trouble uploading images, check the following:</p><ul><li>Image format: We support JPG, PNG, and GIF formats</li><li>File size: Each image must be under 5MB</li><li>Number of images: You can upload up to 10 images per listing</li><li>Internet connection: Ensure you have a stable connection</li></ul><p>If you've verified these points and still can't upload images, try using a different browser or device. If the problem persists, contact our technical support team.</p>"
                     },
                     {
                         question: "How do I report a technical issue or bug?",
-                        answer: "<p>To report a technical issue:</p><ol><li>Go to the 'Help' section at the bottom of any page</li><li>Select 'Report a Problem'</li><li>Fill out the form with as much detail as possible</li><li>Include screenshots if applicable</li><li>Submit the form</li></ol><p>Our technical team reviews all reports and works to resolve issues as quickly as possible. For urgent matters, you can also contact us directly through live chat or email.</p>"
+                        answer: "<p>To report a technical issue:</p><p> you can contact us directly or email.</p>"
                     }
                 ]
             }
