@@ -40,32 +40,36 @@
         <input type="file" name="image" accept="image/*" required />
       </label>
 
+
+
+      <label>Item Name:
+        <input type="text" name="itemName" required />
+      </label>
+
       <!-- category thingggsss-->
       <label>Category:
         <select name="category" required>
           <option value="">-- Select Category --</option>
           <option value="electronics">Electronics</option>
           <option value="fashion">Fashion</option>
-          <option value="home">Home & Living</option>
+          <option value="home">Home and Living</option>
           <option value="toys">Toys</option>
           <option value="sports">Sports</option>
-          <option value="art">Art & Collectibles</option>
+          <option value="art">Art and Collectibles</option>
           <option value="other">other</option>
         </select>
       </label>
       
 
-      <label>Item Name:
-        <input type="text" name="itemName" required />
+      <label>Base Price (LKR):
+        <input type="number" name="basePrice" min="0" required />
       </label>
 
       <label>Description:
         <textarea name="description" rows="4" required></textarea>
       </label>
 
-      <label>Base Price (LKR):
-        <input type="number" name="basePrice" min="0" required />
-      </label>
+
 
       <label>Auction End Date:
         <input type="date" name="endDate" required />
