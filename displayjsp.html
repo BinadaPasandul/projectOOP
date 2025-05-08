@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Item preview</title>
+</head>
+<body>
+<h2>Item table</h2>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>category</th>
+		<th>base price</th>
+		<th>description</th>
+	
+	</tr>
+	<c:forEach var="item" items="${allItems}">
+	<tr>
+		<th>${item.id}</th>
+		<th>${item.name}</th>
+		<th>${item.category}</th>
+		<th>${item.base_price}</th>
+		<th>${item.description}</th>
+	
+	</tr>
+</c:forEach>
+
+
+</table>
+
+
+
+
+
+</body>
+</html>
