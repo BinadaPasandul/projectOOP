@@ -16,7 +16,7 @@
 
     h2 {
         text-align: center;
-        color: #333;
+        color: #000000;
     }
 
     table {
@@ -36,7 +36,7 @@
     }
 
     th {
-        background-color: #007BFF;
+        background-color: #000000;
         color: white;
     }
 
@@ -56,6 +56,7 @@
         color: white;
         cursor: pointer;
         margin: 2px;
+        transition: background-color 0.3s ease;
     }
 
     a button {
@@ -63,8 +64,15 @@
     }
 
     form button {
-        background-color: #dc3545;
+        background-color: #000000;
     }
+    a button:hover {
+    background-color: #006400; /* dark green */
+}
+
+    form button:hover {
+    background-color: #5c5757; 
+	}
 
     form {
         display: inline;
