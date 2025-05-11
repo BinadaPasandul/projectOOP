@@ -1,0 +1,185 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ - Bidify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Inherit header/footer styles */
+        body {
+            background: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .faq-header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .faq-category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        .category-title {
+            color: #00ff88;
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            position: relative;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #00cc66;
+        }
+
+        .faq-question i {
+            color: #00ff88;
+            font-size: 0.8em;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+            margin-top: 15px;
+            padding-left: 30px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                margin-top: 40px;
+            }
+            
+            .faq-header h1 {
+                font-size: 2em;
+            }
+            
+            .faq-category {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%@ include file="header.jsp" %>
+
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about bidding, payments, and account management.</p>
+        </div>
+
+        <div class="faq-category">
+            <h2 class="category-title">General Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-chevron-right"></i>
+                    How do I create an account?
+                </div>
+                <div class="faq-answer">
+                    Click the 'Login' button in the top right corner and select 'Create Account'. 
+                    You'll need to provide a valid email address and set up a password.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-chevron-right"></i>
+                    Is there a fee to join Bidify?
+                </div>
+                <div class="faq-answer">
+                    No, creating an account and browsing auctions is completely free. 
+                    We only charge a small commission fee on successful bids.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 class="category-title">Bidding & Payments</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-chevron-right"></i>
+                    How does the bidding process work?
+                </div>
+                <div class="faq-answer">
+                    Once you find an item you want, enter your maximum bid. Our system will automatically 
+                    bid for you up to your maximum amount. You'll be notified if you're outbid.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-chevron-right"></i>
+                    What payment methods do you accept?
+                </div>
+                <div class="faq-answer">
+                    We accept all major credit cards, PayPal, and direct bank transfers. 
+                    All transactions are securely processed through SSL encryption.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%@ include file="footer.jsp" %>
+
+    <script>
+        // Add toggle functionality
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                item.querySelector('i').classList.toggle('fa-chevron-down');
+                item.querySelector('i').classList.toggle('fa-chevron-right');
+            });
+        });
+    </script>
+</body>
+</html>
