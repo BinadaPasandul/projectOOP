@@ -6,106 +6,198 @@
     <title>FAQ - Bidify</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Inherit header/footer styles */
+        /* Base Styles */
         body {
-            background: #f4f4f4;
+            background: #f8f9fa;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .faq-container {
             max-width: 1200px;
-            margin: 80px auto 40px;
-            padding: 0 20px;
+            margin: 100px auto 60px;
+            padding: 0 30px;
         }
 
+        /* Header Section */
         .faq-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
+            padding: 40px 0;
+            background: linear-gradient(45deg, #000000 0%, #001f0f 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,255,136,0.1);
         }
 
         .faq-header h1 {
-            font-size: 2.5em;
-            color: #000;
+            font-size: 2.8em;
+            color: #fff;
             margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .faq-header p {
-            color: #666;
+            color: #ffffff;
             font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
+        /* Category Styling */
         .faq-category {
-            margin-bottom: 40px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            padding: 30px;
+            margin-bottom: 50px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transform: translateY(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid #109456;
+        }
+
+        .faq-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,255,136,0.1);
         }
 
         .category-title {
-            color: #00ff88;
-            font-size: 1.5em;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
+            color: #000;
+            font-size: 1.6em;
+            padding: 25px 30px;
+            margin: 0;
             position: relative;
+            background: rgba(0,255,136,0.05);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .category-title:before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 3px;
+            background: #109456;
+            border-radius: 2px;
+        }
+
+        /* FAQ Items */
+        .faq-items {
+            padding: 20px 30px;
         }
 
         .faq-item {
             margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
         }
 
-        .faq-item:last-child {
-            border-bottom: none;
+        .faq-item:hover {
+            border-color: #109456;
+            box-shadow: 0 5px 15px rgba(0,255,136,0.05);
         }
 
         .faq-question {
             color: #000;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.15em;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 15px;
             transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            color: #00cc66;
+            position: relative;
         }
 
         .faq-question i {
-            color: #00ff88;
-            font-size: 0.8em;
+            color: #109456;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #109456;
+        }
+
+        .faq-question:hover i {
+            transform: rotate(90deg);
+            color: #007a3d;
         }
 
         .faq-answer {
-            color: #666;
-            line-height: 1.6;
+            color: #555;
+            line-height: 1.7;
             margin-top: 15px;
-            padding-left: 30px;
-            display: none;
+            padding-left: 35px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease;
+            opacity: 0;
         }
 
         .faq-item.active .faq-answer {
-            display: block;
+            max-height: 500px;
+            opacity: 1;
         }
 
+        /* Interactive Elements */
+        .faq-item.active {
+            background: #f8fffb;
+            border-color: #109456;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(90deg);
+            color: #007a3d;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .faq-container {
-                margin-top: 40px;
+                margin: 80px auto 40px;
+                padding: 0 15px;
+            }
+            
+            .faq-header {
+                padding: 30px 15px;
             }
             
             .faq-header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
             .faq-category {
+                margin-bottom: 30px;
+            }
+            
+            .category-title {
                 padding: 20px;
+                font-size: 1.4em;
+            }
+            
+            .faq-items {
+                padding: 15px;
             }
         }
+
+        /* Decorative Elements */
+        .faq-header:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #00ff88;
+            border-radius: 2px;
+        }
+
     </style>
 </head>
 <body>
@@ -114,55 +206,73 @@
     <div class="faq-container">
         <div class="faq-header">
             <h1>Frequently Asked Questions</h1>
-            <p>Find answers to common questions about bidding, payments, and account management.</p>
+            <p>Your comprehensive guide to mastering the Bidify platform. Find instant answers to all your queries.</p>
         </div>
 
         <div class="faq-category">
             <h2 class="category-title">General Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <i class="fas fa-chevron-right"></i>
-                    How do I create an account?
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        How do I create an account?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Getting started is simple! Click the 'Login' button in the top right corner and select 'Create Account'. 
+                        You'll need to provide a valid email address and set up a secure password. We recommend using 
+                        a combination of letters, numbers, and special characters for maximum security.</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    Click the 'Login' button in the top right corner and select 'Create Account'. 
-                    You'll need to provide a valid email address and set up a password.
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <i class="fas fa-chevron-right"></i>
-                    Is there a fee to join Bidify?
-                </div>
-                <div class="faq-answer">
-                    No, creating an account and browsing auctions is completely free. 
-                    We only charge a small commission fee on successful bids.
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        Is there a fee to join Bidify?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bidify offers free membership with full access to all auctions. We only charge a minimal 
+                        3% commission fee on successful bids. Premium membership options with enhanced features 
+                        are available for power users.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="faq-category">
             <h2 class="category-title">Bidding & Payments</h2>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <i class="fas fa-chevron-right"></i>
-                    How does the bidding process work?
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        How does the bidding process work?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our smart bidding system allows you to set your maximum bid amount. We'll automatically 
+                        increment your bid to maintain your position up to your specified limit. You'll receive 
+                        real-time notifications via email and SMS if you're outbid.</p>
+                        <ul class="feature-list">
+                            <li>• Proxy bidding system</li>
+                            <li>• Bid increment protection</li>
+                            <li>• 24/7 auction monitoring</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    Once you find an item you want, enter your maximum bid. Our system will automatically 
-                    bid for you up to your maximum amount. You'll be notified if you're outbid.
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <i class="fas fa-chevron-right"></i>
-                    What payment methods do you accept?
-                </div>
-                <div class="faq-answer">
-                    We accept all major credit cards, PayPal, and direct bank transfers. 
-                    All transactions are securely processed through SSL encryption.
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        What payment methods do you accept?
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support multiple secure payment options:</p>
+                        <div class="payment-methods">
+                            <div class="method"><i class="fab fa-cc-visa"></i> Visa</div>
+                            <div class="method"><i class="fab fa-cc-mastercard"></i> Mastercard</div>
+                            <div class="method"><i class="fab fa-paypal"></i> PayPal</div>
+                            <div class="method"><i class="fas fa-university"></i> Bank Transfer</div>
+                        </div>
+                        <p>All transactions are protected by 256-bit SSL encryption and PCI DSS compliance.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,13 +281,31 @@
     <%@ include file="footer.jsp" %>
 
     <script>
-        // Add toggle functionality
+        // Enhanced Toggle Functionality
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
-                const parent = item.parentElement;
+                const parent = item.closest('.faq-item');
+                const allItems = document.querySelectorAll('.faq-item');
+                
+                allItems.forEach(otherItem => {
+                    if (otherItem !== parent) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                        otherItem.querySelector('i').classList.remove('fa-chevron-down');
+                    }
+                });
+
                 parent.classList.toggle('active');
-                item.querySelector('i').classList.toggle('fa-chevron-down');
-                item.querySelector('i').classList.toggle('fa-chevron-right');
+                const answer = parent.querySelector('.faq-answer');
+                const chevron = parent.querySelector('i');
+                
+                if (parent.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    chevron.classList.replace('fa-chevron-right', 'fa-chevron-down');
+                } else {
+                    answer.style.maxHeight = '0';
+                    chevron.classList.replace('fa-chevron-down', 'fa-chevron-right');
+                }
             });
         });
     </script>
