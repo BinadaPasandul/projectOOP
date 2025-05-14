@@ -1,9 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidify - Online Auctions</title>
+    <title>Bidify</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -142,7 +146,7 @@
         }
         
         .bid-btn:hover {
-            background-color: #248457;
+            background-color: #000000;
         }
     </style>
 </head>
@@ -151,45 +155,43 @@
 
     <div class="container">
         <header>
-            <div class="logo">Bidify</div>
+            <div class="logo">Select Your Bid !!</div>
 
         </header>
         
         <main>
             <div class="auction-grid">
+             
+              <c:forEach var="item" items="${allItems}">
+            
                 <!-- Auction Item 1 -->
                 <div class="auction-card">
                     <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                          alt="Vintage Rolex" class="auction-image">
                     <div class="auction-details">
-                        <h3 class="auction-title">Vintage Rolex Submariner</h3>
+                        <h3 class="auction-title">${item.name}</h3>
                         <p class="auction-description">
-                            A new 1960s Rolex Submariner in excellent condition. This timepiece features the original dial and movement.
+                            ${item.description}
                         </p>
                         <div class="auction-meta">
                             <span class="meta-label">Base Price:</span>
-                            <span class="meta-value">LKR 8,000</span>
+                            <span class="meta-value">${item.base_price}</span>
                         </div>
-                        <button class="bid-btn">Place Bid</button>
+                       <button class="bid-btn" onclick="window.location.href='BidPriceServlet?itemId=${item.id}'">Place Bid</button>
                     </div>
                 </div>
+               
+                 </c:forEach>
+                 
+                
 
                 <!-- More auction items can be added similarly -->
             </div>
         </main>
     </div>
 
-    <script>
 
-            const bidButtons = document.querySelectorAll('.bid-btn');
-            bidButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    alert('Bid functionality would be implemented here');
-                });
-            });
-        });
-    </script>
     
-<%@ include file="footer.jsp" %>
+
 </body>
 </html>
