@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BindulXbID</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+  
+
+
+        <div class = "cotentregister">
+            <form method = "post" action="UserRegister" id ="registerform">
+                <legend><h1>Register</h1></legend>
+                <div class="field-space">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+                <div class="field-space">
+                    <input type="text"  name="address" placeholder="Address" required>
+                </div>
+                <div class="field-line">
+                    
+                    <input type="text" name="city" placeholder="City" required>
+                    <input type="text" name="province" placeholder="Province/Region" required>
+                    <input type="text" name="country" placeholder="Country" required>
+                </div>
+                <div class="field-space">
+                    <input type="email" id="email"  name="email" placeholder="E-mail" required>
+                </div>
+
+                <div class="field-space">
+                    <input type="password" name="password" id="pass" placeholder="Create password" required>
+                </div>
+                
+
+                <div class="field-space">
+                    <input type="password"  name="repasword" id="repass" placeholder="Re-enter password" required>
+                </div>
+
+                
+                <div class="field-space">
+                    <input type="text" placeholder="Fax"  name="fax" required>
+                </div>
+                <div class="field-space">
+                    <input type="text" placeholder="Hotline"  name="tel" required>
+                </div>
+                <div class="check">
+                    <input type="checkbox" id ="terms" required>I confirm above details are true<br>
+                </div>
+                <div class="submit" >
+                    <button type="submit" id="submit">Register</button>
+                </div>
+                <div class="backloggin">
+                    <a href="loggin.jsp">log in</a>
+                </div>
+
+            </form>
+        </div>
+        <script>
+           document.getElementById('registerform').addEventListener('submit', function(event) {
+            // Get the values of the password fields
+            const password = document.getElementById('pass').value;
+            const confirmPassword = document.getElementById('repass').value;
+
+            // Check if the passwords match
+            if (password !== confirmPassword) {
+            event.preventDefault();
+            alert("Password and confirm password do not match.");
+            } else {
+                     alert("Successfully signed up!");
+              }
+             });
+
+          </script>
+          
+    </body>
+</html>
