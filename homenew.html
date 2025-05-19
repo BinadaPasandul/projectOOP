@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidify - Online Auction Platform</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        .auth-buttons .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-login {
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            margin-right: 1rem;
+        }
+
+        .btn-login:hover {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-register {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-register:hover {
+            background-color: #c0392b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Featured Auctions */
+        .featured {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .auction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .auction-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .auction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .auction-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .auction-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .auction-card:hover .auction-image img {
+            transform: scale(1.05);
+        }
+
+        .auction-details {
+            padding: 1.5rem;
+        }
+
+        .auction-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .auction-details p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .auction-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .auction-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+
+        .bid-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .bid-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 4rem 5%;
+            background-color: #fff;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            background-color: #e74c3c;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 5%;
+            background-color: #f8f9fa;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h4 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .step p {
+            color: #7f8c8d;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 5%;
+            background-color: #fff;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h5 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #bdc3c7;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: #e74c3c;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #1a252f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #bdc3c7;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                margin-bottom: 3rem;
+            }
+
+            .step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                bottom: -2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 2rem;
+                background-color: #e74c3c;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                border-radius: 5px;
+            }
+
+            .search-bar input {
+                border-radius: 5px 5px 0 0;
+            }
+
+            .search-bar button {
+                padding: 1rem;
+                border-radius: 0 0 5px 5px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 5px 5px 0 0;
+            }
+
+            .newsletter-form button {
+                border-radius: 0 0 5px 5px;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/40" alt="Bidify Logo">
+                <h1>Bid<span>ify</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Auctions</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-login">Login</a>
+                <a href="#" class="btn btn-register">Register</a>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Discover Amazing Items & Bid to Win</h2>
+            <p>Join thousands of bidders in our exciting online auctions. Find unique items at great prices or sell your own treasures.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Auctions -->
+    <section class="featured">
+        <div class="section-title">
+            <h3>Featured Auctions</h3>
+            <p>Check out these hot items with bids ending soon</p>
+        </div>
+        <div class="auction-grid">
+            <!-- Auction Item 1 -->
+            <div class="auction-card">
+                <div class="auction-image">
+                    <img src="https://via.placeholder.com/400x300" alt="Vintage Camera">
+                </div>
+                <div class="auction-details">
+                    <h4>Vintage Leica Camera</h4>
+                    <p>Rare 1950s model in excellent condition</p>
+                    <div class="auction-price">$1,250</div>
+                    <div class="auction-meta">
+                        <span>12 Bids</span>
+                        <span>2d 4h left</span>
+                    </div>
+                    <button class="bid-btn">Place Bid</button>
+                </div>
+            </div>
+            
+            <!-- Auction Item 2 -->
+            <div class="auction-card">
+                <div class="auction-image">
+                    <img src="https://via.placeholder.com/400x300" alt="Smart Watch">
+                </div>
+                <div class="auction-details">
+                    <h4>Apple Watch Series 7</h4>
+                    <p>Brand new, sealed in box</p>
+                    <div class="auction-price">$320</div>
+                    <div class="auction-meta">
+                        <span>8 Bids</span>
+                        <span>1d 6h left</span>
+                    </div>
+                    <button class="bid-btn">Place Bid</button>
+                </div>
+            </div>
+            
+            <!-- Auction Item 3 -->
+            <div class="auction-card">
+                <div class="auction-image">
+                    <img src="https://via.placeholder.com/400x300" alt="Painting">
+                </div>
+                <div class="auction-details">
+                    <h4>Original Landscape Painting</h4>
+                    <p>Oil on canvas by local artist</p>
+                    <div class="auction-price">$450</div>
+                    <div class="auction-meta">
+                        <span>5 Bids</span>
+                        <span>3d 2h left</span>
+                    </div>
+                    <button class="bid-btn">Place Bid</button>
+                </div>
+            </div>
+            
+            <!-- Auction Item 4 -->
+            <div class="auction-card">
+                <div class="auction-image">
+                    <img src="https://via.placeholder.com/400x300" alt="Antique Chair">
+                </div>
+                <div class="auction-details">
+                    <h4>Antique Windsor Chair</h4>
+                    <p>Early 19th century, restored</p>
+                    <div class="auction-price">$780</div>
+                    <div class="auction-meta">
+                        <span>15 Bids</span>
+                        <span>4h 30m left</span>
+                    </div>
+                    <button class="bid-btn">Place Bid</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="section-title">
+            <h3>Browse Categories</h3>
+            <p>Find what you're looking for in our specialized categories</p>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">📱</div>
+                <h4>Electronics</h4>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👕</div>
+                <h4>Fashion</h4>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🖼️</div>
+                <h4>Art</h4>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏠</div>
+                <h4>Home</h4>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📚</div>
+                <h4>Books</h4>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🚗</div>
+                <h4>Vehicles</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-title">
+            <h3>How Bidify Works</h3>
+            <p>Get started in just a few simple steps</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Create an Account</h4>
+                <p>Register for free in just a few minutes with your email address.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Browse or List Items</h4>
+                <p>Find amazing items to bid on or list your own items for sale.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Place Your Bid</h4>
+                <p>Enter the maximum amount you're willing to pay and let our system bid for you.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Win & Complete</h4>
+                <p>If you have the highest bid when the auction ends, complete your purchase.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h3>What Our Users Say</h3>
+            <p>Hear from our satisfied community of buyers and sellers</p>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <p class="testimonial-text">"I've been using Bidify for over a year now and have found some incredible deals on collectibles. The bidding system is fair and transparent, and I've never had any issues with sellers."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://via.placeholder.com/60" alt="Sarah Johnson">
+                    </div>
+                    <div class="author-info">
+                        <h5>Sarah Johnson</h5>
+                        <p>Collector since 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"As a small business owner, Bidify has helped me clear out inventory quickly and at good prices. The fees are reasonable and the buyers are serious."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://via.placeholder.com/60" alt="Michael Chen">
+                    </div>
+                    <div class="author-info">
+                        <h5>Michael Chen</h5>
+                        <p>Antique Shop Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"I was skeptical at first, but I got a nearly new laptop for 40% off retail price! The seller shipped quickly and the item was exactly as described. Will definitely use again."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://via.placeholder.com/60" alt="David Wilson">
+                    </div>
+                    <div class="author-info">
+                        <h5>David Wilson</h5>
+                        <p>First-time Buyer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active" data-index="0"></div>
+                <div class="slider-dot" data-index="1"></div>
+                <div class="slider-dot" data-index="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h3>Stay Updated</h3>
+        <p>Subscribe to our newsletter to receive updates on new auctions, featured items, and special promotions.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address">
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Bidify</h4>
+                <p>Bidify is a premier online auction platform connecting buyers and sellers worldwide since 2015.</p>
+                <div class="social-links">
+                    <a href="#"><span>f</span></a>
+                    <a href="#"><span>t</span></a>
+                    <a href="#"><span>in</span></a>
+                    <a href="#"><span>ig</span></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Auctions</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Sell an Item</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Help & Support</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Bidding Guide</a></li>
+                    <li><a href="#">Seller Guide</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Bidify. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showTestimonial(parseInt(dot.getAttribute('data-index')));
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Search form submission
+        const searchForm = document.querySelector('.search-bar');
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchInput = this.querySelector('input');
+            alert(`Searching for: ${searchInput.value}`);
+            searchInput.value = '';
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input');
+            alert(`Thank you for subscribing with: ${emailInput.value}`);
+            emailInput.value = '';
+        });
+
+        // Bid button click
+        document.querySelectorAll('.bid-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const itemName = this.closest('.auction-card').querySelector('h4').textContent;
+                alert(`You're about to bid on: ${itemName}\n(Note: This is a demo. In a real app, you would be taken to the bidding page.)`);
+            });
+        });
+    </script>
+</body>
+</html>
