@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const endDateInput = form.querySelector('input[name="endDate"]');
     const endTimeInput = form.querySelector('input[name="endTime"]');
     const countdownMessage = document.createElement('p');
-    countdownMessage.style.fontSize = '0.8rem';
+    countdownMessage.style.fontSize = '0.9rem';
     countdownMessage.style.color = '#333';
   
     function updateCountdownMessage() {
