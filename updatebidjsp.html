@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +15,7 @@
  
 </head>
 <body>
-<%@ include file="header.jsp" %>
-<%
-		String bid = request.getParameter("bid");
-		String bidamount = request.getParameter("bidamount");
-		String bidName = request.getParameter("bidName");
-%>
+
 	<div class="place-bid-form">
                 <h3>Update Your Bid</h3>
                 <div class="current-info">
@@ -46,6 +40,6 @@
                     <button type="submit" class="bid-submit-button">Update Bid</button>
                 </form>
             </div>
-            <%@ include file="footer.jsp" %>
+            
 </body>
 </html>
