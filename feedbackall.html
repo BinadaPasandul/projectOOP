@@ -744,10 +744,7 @@
                 filteredReviews = filteredReviews.filter(review => review.type === filterType);
             }
 
-            // Filter by rating
-            if (!isNaN(filterRating)) {
-                filteredReviews = filteredReviews.filter(review => review.rating >= filterRating);
-            }
+      
 
             // Sort reviews
             switch (sortBy) {
@@ -768,7 +765,7 @@
             renderReviews(filteredReviews);
         }
 
-        // Function to handle review type change
+     
         function handleReviewTypeChange() {
             const reviewType = document.getElementById('review-type').value;
             const itemSellerContainer = document.getElementById('item-seller-container');
